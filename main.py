@@ -53,7 +53,7 @@ MY_PASSWORD = os.environ.get("MY_PASSWORD")
 data = pandas.read_csv("quotes.txt")
 random_number = random.randint(0,101)
 
-with smtplib.SMTP("smtp.gmail.com"") as connection:
+with smtplib.SMTP("smtp.gmail.com") as connection:
     connection.starttls()
     connection.login(MY_EMAIL, MY_PASSWORD)
     connection.sendmail(from_addr=MY_EMAIL,to_addrs="arthur.toledo@gmail.com",msg=f"Subject:Monday Motivation \n\n {data.loc[random_number].at["Quote"]}")
