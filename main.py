@@ -51,13 +51,12 @@ day_of_week = now.weekday()
 data=pd.read_table("quotes.txt")
 random_number = random.randint(0,101)
 
-my_email = os.environ.get("my_email")
-password = os.environ.get("password")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 with smtplib.SMTP("smtp.gmail.com") as connection:
     connection.starttls()
-    connection.login(user=my_email,password=password)
+    connection.login(user=MY_EMAIL,password=MY_PASSWORD)
     if day_of_week == 0:
-        #connection.sendmail(from_addr=my_email, to_addrs="iris.hollick@gmail.com", msg=f"Subject: Monday Motivation \n\n {data.loc[random_number].at["Quote"]}")
-        connection.sendmail(from_addr=my_email, to_addrs="arthur.toledo@gmail.com",
+    connection.sendmail(from_addr=MY_EMAIL, to_addrs="arthur.toledo@gmail.com",
                             msg=f"Subject: Monday Motivation \n\n {data.loc[random_number].at["Quote"]}")
