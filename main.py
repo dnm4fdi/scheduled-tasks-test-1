@@ -41,6 +41,7 @@ import smtplib
 import datetime as dt
 import pandas as pd
 import random
+import os
 
 now = dt.datetime.now()
 year = now.year
