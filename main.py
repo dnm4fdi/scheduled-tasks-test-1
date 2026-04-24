@@ -51,8 +51,8 @@ day_of_week = now.weekday()
 data=pd.read_table("quotes.txt")
 random_number = random.randint(0,101)
 
-my_email = "ihollick46@gmail.com"
-password = "siqt yhvy eyqu hsqv"
+my_email = os.environ.get("my_email")
+password = os.environ.get("password")
 
 with smtplib.SMTP("smtp.gmail.com") as connection:
     connection.starttls()
